@@ -208,11 +208,11 @@ body {
 .sunflower-head {
   position: absolute;
   left: 50%;
-  top: -7vmin;
-  width: 19vmin;
-  height: 19vmin;
+  top: -6.4vmin;
+  width: 20vmin;
+  height: 20vmin;
   transform: translate(-50%, -50%);
-  animation: sunflower-pop 1.8s backwards;
+  animation: sunflower-pop 1.8s backwards, sunflower-pulse 2.8s 2s ease-in-out infinite;
   z-index: 5;
 }
 .flower__leafs--1 .sunflower-head {
@@ -228,44 +228,51 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 4.2vmin;
-  height: 8.8vmin;
-  border-radius: 55% 55% 45% 45%/78% 78% 22% 22%;
-  background: linear-gradient(to top, #f19a00 0%, #ffbd14 45%, #ffdf39 78%, #fff063 100%);
-  box-shadow: inset 0 -0.65vmin 0.9vmin rgba(177, 81, 0, 0.25), 0 0.35vmin 0.8vmin rgba(255, 181, 26, 0.25);
-  transform-origin: 50% 92%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff6a00 0%, #ffb900 58%, #ffe12f 100%);
+  filter: drop-shadow(0 0 0.7vmin rgba(255, 145, 0, 0.7));
+  transform-origin: center;
 }
-.sunflower-head span:nth-child(1) { transform: translate(-50%, -92%) rotate(0deg); }
-.sunflower-head span:nth-child(2) { transform: translate(-50%, -92%) rotate(22.5deg); }
-.sunflower-head span:nth-child(3) { transform: translate(-50%, -92%) rotate(45deg); }
-.sunflower-head span:nth-child(4) { transform: translate(-50%, -92%) rotate(67.5deg); }
-.sunflower-head span:nth-child(5) { transform: translate(-50%, -92%) rotate(90deg); }
-.sunflower-head span:nth-child(6) { transform: translate(-50%, -92%) rotate(112.5deg); }
-.sunflower-head span:nth-child(7) { transform: translate(-50%, -92%) rotate(135deg); }
-.sunflower-head span:nth-child(8) { transform: translate(-50%, -92%) rotate(157.5deg); }
-.sunflower-head span:nth-child(9) { transform: translate(-50%, -92%) rotate(180deg); }
-.sunflower-head span:nth-child(10) { transform: translate(-50%, -92%) rotate(202.5deg); }
-.sunflower-head span:nth-child(11) { transform: translate(-50%, -92%) rotate(225deg); }
-.sunflower-head span:nth-child(12) { transform: translate(-50%, -92%) rotate(247.5deg); }
-.sunflower-head span:nth-child(13) { transform: translate(-50%, -92%) rotate(270deg); }
-.sunflower-head span:nth-child(14) { transform: translate(-50%, -92%) rotate(292.5deg); }
-.sunflower-head span:nth-child(15) { transform: translate(-50%, -92%) rotate(315deg); }
-.sunflower-head span:nth-child(16) { transform: translate(-50%, -92%) rotate(337.5deg); }
-.sunflower-head span:nth-child(even) {
-  width: 3.7vmin;
-  height: 7.8vmin;
-  background: linear-gradient(to top, #e88900 0%, #ffaa0b 46%, #ffd82c 80%, #ffed5b 100%);
+.sunflower-head span:nth-child(-n + 8) {
+  width: 20vmin;
+  height: 4.1vmin;
+  z-index: 1;
+  background: radial-gradient(circle, #ff6500 0%, #ffbd00 54%, #fbd702 100%);
+  filter: drop-shadow(0 0 0.45vmin #fbd702);
 }
+.sunflower-head span:nth-child(n + 9) {
+  width: 12vmin;
+  height: 3.1vmin;
+  z-index: 3;
+  background: radial-gradient(circle, #ff5e00 0%, #ffad00 62%, #ffcf1f 100%);
+  filter: drop-shadow(0 0 0.7vmin #e05200);
+}
+.sunflower-head span:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); }
+.sunflower-head span:nth-child(2) { transform: translate(-50%, -50%) rotate(45deg); }
+.sunflower-head span:nth-child(3) { transform: translate(-50%, -50%) rotate(90deg); }
+.sunflower-head span:nth-child(4) { transform: translate(-50%, -50%) rotate(135deg); }
+.sunflower-head span:nth-child(5) { transform: translate(-50%, -50%) rotate(22.5deg); }
+.sunflower-head span:nth-child(6) { transform: translate(-50%, -50%) rotate(67.5deg); }
+.sunflower-head span:nth-child(7) { transform: translate(-50%, -50%) rotate(112.5deg); }
+.sunflower-head span:nth-child(8) { transform: translate(-50%, -50%) rotate(157.5deg); }
+.sunflower-head span:nth-child(9) { transform: translate(-50%, -50%) rotate(22.5deg); }
+.sunflower-head span:nth-child(10) { transform: translate(-50%, -50%) rotate(67.5deg); }
+.sunflower-head span:nth-child(11) { transform: translate(-50%, -50%) rotate(112.5deg); }
+.sunflower-head span:nth-child(12) { transform: translate(-50%, -50%) rotate(157.5deg); }
+.sunflower-head span:nth-child(13) { transform: translate(-50%, -50%) rotate(0deg); }
+.sunflower-head span:nth-child(14) { transform: translate(-50%, -50%) rotate(45deg); }
+.sunflower-head span:nth-child(15) { transform: translate(-50%, -50%) rotate(90deg); }
+.sunflower-head span:nth-child(16) { transform: translate(-50%, -50%) rotate(135deg); }
 .sunflower-head i {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 8.4vmin;
-  height: 8.4vmin;
+  width: 5.4vmin;
+  height: 5.4vmin;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 32%, #b86a20 0 0.55vmin, transparent 0.62vmin), radial-gradient(circle at 62% 42%, #5e2b0b 0 0.48vmin, transparent 0.55vmin), radial-gradient(circle at 45% 65%, #8d4814 0 0.5vmin, transparent 0.58vmin), radial-gradient(circle, #a85d1d 0 26%, #8b4615 27% 54%, #69300d 55% 100%);
-  background-size: 2.1vmin 2.1vmin, 2.3vmin 2.3vmin, 1.8vmin 1.8vmin, 100% 100%;
-  box-shadow: inset 0 0 1.1vmin rgba(52, 18, 0, 0.55), 0 0 1.2vmin rgba(255, 165, 22, 0.28);
+  background: radial-gradient(circle, #050000 0%, #ff5e00 48%, #0c0200 100%);
+  background-size: 0.7vmin 0.7vmin;
+  box-shadow: inset 0 0 0.9vmin rgba(20, 0, 0, 0.85), 0 0 1vmin #682600;
   transform: translate(-50%, -50%);
   z-index: 4;
 }
@@ -1319,6 +1326,14 @@ body {
   100% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+}
+@keyframes sunflower-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
   }
 }
 @keyframes moving-grass {
