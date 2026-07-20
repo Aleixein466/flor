@@ -302,6 +302,30 @@ body {
 .field-bloom .flower__leafs {
   animation-delay: calc(var(--field-delay) + 1.3s);
 }
+.field-bloom .flower__leafs::after {
+  left: 50%;
+  top: -1vmin;
+  width: 0.8vmin;
+  height: 0.8vmin;
+  border-radius: 50%;
+  background-color: #fff86a;
+  filter: blur(0.12vmin);
+  box-shadow: -4vmin -1vmin 0 #23f0ff, 3.5vmin -2vmin 0 #fff86a, -2.4vmin -5.5vmin 0 #fff, 5vmin -6.5vmin 0 #23f0ff, 0.6vmin -8.5vmin 0 #ffe65a;
+  animation: field-particles 3.8s calc(var(--field-delay) + 1.1s) linear infinite backwards;
+}
+.field-bloom .flower__leafs::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -2vmin;
+  width: 0.7vmin;
+  height: 0.7vmin;
+  border-radius: 50%;
+  background-color: #23f0ff;
+  filter: blur(0.16vmin);
+  box-shadow: -5.5vmin -4vmin 0 #fff86a, 4.6vmin -3.2vmin 0 #23f0ff, -0.8vmin -7vmin 0 #fff, 2.5vmin -9.2vmin 0 #ffe65a;
+  animation: field-particles 4.4s calc(var(--field-delay) + 2s) linear infinite backwards;
+}
 .field-bloom--1 {
   --field-left: -46vw;
   --field-bottom: 3vmin;
@@ -1265,6 +1289,24 @@ body {
     transform: translateY(-30vmin);
     opacity: 0;
     filter: blur(1vmin);
+  }
+}
+@keyframes field-particles {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.4);
+  }
+  18% {
+    opacity: 1;
+  }
+  58% {
+    opacity: 0.95;
+    transform: translate(-50%, -5vmin) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -12vmin) scale(0.65);
+    filter: blur(0.8vmin);
   }
 }
 @keyframes moving-flower-1 {
