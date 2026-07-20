@@ -113,91 +113,6 @@ body {
   z-index: 10;
 }
 
-.flower-field {
-  position: fixed;
-  inset: auto 0 0;
-  height: 42vmin;
-  pointer-events: none;
-  z-index: 7;
-  overflow: hidden;
-}
-
-.flower-field::before {
-  content: "";
-  position: absolute;
-  inset: auto -5vw 0;
-  height: 18vmin;
-  background-image: linear-gradient(to top, rgba(2, 24, 11, 0.94), rgba(6, 54, 27, 0.72) 62%, transparent), repeating-linear-gradient(100deg, transparent 0 1.8vmin, rgba(23, 146, 68, 0.42) 1.9vmin 2.1vmin, transparent 2.2vmin 4vmin), repeating-linear-gradient(78deg, transparent 0 1.6vmin, rgba(67, 206, 104, 0.38) 1.7vmin 1.95vmin, transparent 2vmin 3.6vmin);
-  filter: blur(0.05vmin);
-}
-
-.field-flower {
-  position: absolute;
-  left: var(--x);
-  bottom: 2vmin;
-  width: 0.65vmin;
-  height: var(--h);
-  border-radius: 999px;
-  background-image: linear-gradient(to top, #0b5a2c, #36c565);
-  box-shadow: inset 0 0 0.35vmin rgba(255, 255, 255, 0.22);
-  transform: scale(var(--s)) rotate(var(--lean, 0deg));
-  transform-origin: bottom center;
-  animation: field-grow 1.3s var(--d) backwards, field-sway 4.2s calc(var(--d) + 1.2s) ease-in-out infinite;
-}
-
-.field-flower:nth-child(3n + 1) {
-  --lean: -4deg;
-}
-
-.field-flower:nth-child(3n + 2) {
-  --lean: 3deg;
-}
-
-.field-flower::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 34%;
-  width: 3.8vmin;
-  height: 1.8vmin;
-  border-radius: 100% 0 100% 0;
-  background-image: linear-gradient(135deg, #105f31, #43cc6a);
-  transform: translateX(-84%) rotate(-26deg);
-  box-shadow: 2.6vmin 2.4vmin 0 -0.35vmin #23894a;
-}
-
-.field-flower::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -3.8vmin;
-  width: 7vmin;
-  height: 7vmin;
-  border-radius: 50%;
-  transform: translateX(-50%);
-}
-
-.sunflower::after {
-  background: radial-gradient(circle, #3b1a06 0 26%, #7a4211 27% 38%, transparent 39%), radial-gradient(ellipse at center, #ffd33f 0 36%, transparent 37%);
-  box-shadow: 0 -3vmin 0 -1.4vmin #ffd33f, 2.2vmin -2.1vmin 0 -1.4vmin #ffb31e, 3vmin 0 0 -1.4vmin #ffd33f, 2.1vmin 2.2vmin 0 -1.4vmin #ffb31e, 0 3vmin 0 -1.4vmin #ffd33f, -2.2vmin 2.1vmin 0 -1.4vmin #ffb31e, -3vmin 0 0 -1.4vmin #ffd33f, -2.1vmin -2.2vmin 0 -1.4vmin #ffb31e, 0 0 1.2vmin rgba(255, 216, 65, 0.35);
-}
-
-.daisy::after {
-  background: radial-gradient(circle, #ffd92f 0 24%, #d49400 25% 35%, transparent 36%), radial-gradient(ellipse at center, #fff 0 32%, transparent 33%);
-  box-shadow: 0 -3vmin 0 -1.45vmin #fff, 2.25vmin -2.15vmin 0 -1.45vmin #eefcff, 3vmin 0 0 -1.45vmin #fff, 2.15vmin 2.25vmin 0 -1.45vmin #eefcff, 0 3vmin 0 -1.45vmin #fff, -2.25vmin 2.15vmin 0 -1.45vmin #eefcff, -3vmin 0 0 -1.45vmin #fff, -2.15vmin -2.25vmin 0 -1.45vmin #eefcff, 0 0 1.1vmin rgba(255, 255, 255, 0.36);
-}
-
-.violet-rose::after {
-  background: radial-gradient(circle at 44% 42%, #2a063d 0 16%, transparent 17%), conic-gradient(from 25deg, #4b0a69, #8b26a6, #5e0d7e, #b44bd1, #44105d, #4b0a69);
-  border-radius: 62% 38% 60% 40%/48% 60% 40% 52%;
-  box-shadow: inset 0 -0.7vmin 1vmin rgba(25, 0, 38, 0.62), 0 0 1.4vmin rgba(175, 65, 215, 0.42);
-  transform: translateX(-50%) rotate(22deg);
-}
-
-.violet-rose::before {
-  box-shadow: 2.6vmin 2.4vmin 0 -0.35vmin #2f9b52, -1.4vmin -1.2vmin 0 -0.55vmin #42104f;
-}
-
 .flower {
   position: absolute;
   bottom: 10vmin;
@@ -270,6 +185,92 @@ body {
 }
 .flower--3 .flower__line__leaf--4 {
   animation: blooming-leaf-left var(--fl-speed) 1.9s backwards;
+}
+.field-bloom {
+  bottom: var(--field-bottom);
+  left: var(--field-left);
+  z-index: var(--field-z);
+  transform: scale(var(--field-scale)) rotate(var(--field-rotate));
+  animation: field-bloom-sway var(--field-speed) ease-in-out infinite;
+}
+.field-bloom .flower__line {
+  height: var(--field-height);
+  animation-delay: var(--field-delay);
+}
+.field-bloom .flower__line__leaf--1 {
+  animation: blooming-leaf-right var(--fl-speed) calc(var(--field-delay) + 1s) backwards;
+}
+.field-bloom .flower__line__leaf--2 {
+  animation: blooming-leaf-right var(--fl-speed) calc(var(--field-delay) + 0.8s) backwards;
+}
+.field-bloom .flower__line__leaf--3 {
+  animation: blooming-leaf-left var(--fl-speed) calc(var(--field-delay) + 0.7s) backwards;
+}
+.field-bloom .flower__line__leaf--4 {
+  animation: blooming-leaf-left var(--fl-speed) calc(var(--field-delay) + 0.6s) backwards;
+}
+.field-bloom .flower__leafs {
+  animation-delay: calc(var(--field-delay) + 1.3s);
+}
+.field-bloom--1 {
+  --field-left: -46vw;
+  --field-bottom: 3vmin;
+  --field-height: 38vmin;
+  --field-scale: 0.55;
+  --field-rotate: -12deg;
+  --field-speed: 4.8s;
+  --field-delay: 0.4s;
+  --field-z: 4;
+}
+.field-bloom--2 {
+  --field-left: -34vw;
+  --field-bottom: 0vmin;
+  --field-height: 31vmin;
+  --field-scale: 0.46;
+  --field-rotate: 10deg;
+  --field-speed: 5.2s;
+  --field-delay: 0.8s;
+  --field-z: 3;
+}
+.field-bloom--3 {
+  --field-left: -22vw;
+  --field-bottom: 1vmin;
+  --field-height: 35vmin;
+  --field-scale: 0.5;
+  --field-rotate: -5deg;
+  --field-speed: 4.5s;
+  --field-delay: 1.1s;
+  --field-z: 5;
+}
+.field-bloom--4 {
+  --field-left: 18vw;
+  --field-bottom: 2vmin;
+  --field-height: 40vmin;
+  --field-scale: 0.58;
+  --field-rotate: 12deg;
+  --field-speed: 5s;
+  --field-delay: 0.6s;
+  --field-z: 4;
+}
+.field-bloom--5 {
+  --field-left: 31vw;
+  --field-bottom: -1vmin;
+  --field-height: 32vmin;
+  --field-scale: 0.47;
+  --field-rotate: -9deg;
+  --field-speed: 4.7s;
+  --field-delay: 1.3s;
+  --field-z: 3;
+}
+.field-bloom--6 {
+  --field-left: 43vw;
+  --field-bottom: 1vmin;
+  --field-height: 36vmin;
+  --field-scale: 0.52;
+  --field-rotate: 7deg;
+  --field-speed: 5.4s;
+  --field-delay: 0.9s;
+  --field-z: 5;
 }
 .flower__leafs {
   position: relative;
@@ -346,6 +347,51 @@ body {
   height: 60%;
   border-radius: inherit;
   background-image: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(112.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(112.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(22.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(22.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(157.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), linear-gradient(90deg, #ffeb12, #ffce00);
+}
+.field-bloom--sunflower .flower__leaf {
+  background-color: #ffd54a;
+  background-image: linear-gradient(to top, #d88400, #ffd54a 70%, #fff08a);
+  box-shadow: inset 0 0 2vmin rgba(255, 236, 135, 0.55), 0 0 1.2vmin rgba(255, 191, 36, 0.35);
+}
+.field-bloom--sunflower .flower__leaf--4 {
+  background-image: linear-gradient(to top, #c37400, #ffc83d 72%, #fff08a);
+}
+.field-bloom--sunflower .flower__white-circle {
+  background-color: #4b2508;
+}
+.field-bloom--sunflower .flower__white-circle::after {
+  background-image: radial-gradient(circle at 35% 35%, #7d4a15 0 0.35vmin, transparent 0.4vmin), radial-gradient(circle, #5b2d0a, #241004 78%);
+  background-size: 1.8vmin 1.8vmin, 100% 100%;
+}
+.field-bloom--daisy .flower__leaf {
+  background-color: #fff;
+  background-image: linear-gradient(to top, #dff9f7, #fff 72%, #fff8d4);
+  box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.68), 0 0 1.4vmin rgba(255, 255, 255, 0.32);
+}
+.field-bloom--daisy .flower__leaf--4 {
+  background-image: linear-gradient(to top, #d7f4f2, #fff 70%, #fff9db);
+}
+.field-bloom--daisy .flower__white-circle {
+  background-color: #ffd84a;
+}
+.field-bloom--daisy .flower__white-circle::after {
+  background-image: radial-gradient(circle, #fff38a, #ffcf25 58%, #ca8500);
+}
+.field-bloom--violet-rose .flower__leaf {
+  border-radius: 58% 42% 52% 48%/52% 48% 58% 42%;
+  background-color: #7b168f;
+  background-image: radial-gradient(circle at 30% 20%, #d46bef 0%, transparent 32%), linear-gradient(to top, #3f0756, #7d1595 60%, #b748d0);
+  box-shadow: inset 0 -1vmin 1.4vmin rgba(35, 0, 52, 0.68), 0 0 1.3vmin rgba(183, 72, 208, 0.42);
+}
+.field-bloom--violet-rose .flower__leaf--4 {
+  border-radius: 58% 42% 54% 46%/54% 48% 58% 42%;
+  background-image: radial-gradient(circle at 25% 20%, #dc77f3 0%, transparent 34%), linear-gradient(to top, #330143, #7b148f 60%, #a838c4);
+}
+.field-bloom--violet-rose .flower__white-circle {
+  background-color: #42104f;
+}
+.field-bloom--violet-rose .flower__white-circle::after {
+  background-image: conic-gradient(from 35deg, #2e0639, #8d2aa5, #55106d, #b947d5, #2e0639);
 }
 .flower__line {
   height: 55vmin;
@@ -1160,18 +1206,12 @@ body {
     transform: rotate(-28deg) translateX(-95vw);
   }
 }
-@keyframes field-grow {
-  0% {
-    opacity: 0;
-    transform: scale(var(--s)) scaleY(0) rotate(var(--lean, 0deg));
-  }
-}
-@keyframes field-sway {
+@keyframes field-bloom-sway {
   0%, 100% {
-    transform: scale(var(--s)) rotate(var(--lean, 0deg));
+    transform: scale(var(--field-scale)) rotate(var(--field-rotate));
   }
   50% {
-    transform: scale(var(--s)) rotate(calc(var(--lean, 0deg) + 3deg));
+    transform: scale(var(--field-scale)) rotate(calc(var(--field-rotate) + 3deg));
   }
 }
 .not-loaded * {
