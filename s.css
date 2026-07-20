@@ -124,7 +124,7 @@ body {
   animation: moving-flower-1 4s linear infinite;
 }
 .flower--1 .flower__line {
-  height: 70vmin;
+  height: 58vmin;
   animation-delay: 0.3s;
 }
 .flower--1 .flower__line__leaf--1 {
@@ -151,7 +151,7 @@ body {
   animation: moving-flower-2 4s linear infinite;
 }
 .flower--2 .flower__line {
-  height: 60vmin;
+  height: 50vmin;
   animation-delay: 0.6s;
 }
 .flower--2 .flower__line__leaf--1 {
@@ -172,6 +172,7 @@ body {
   animation: moving-flower-3 4s linear infinite;
 }
 .flower--3 .flower__line {
+  height: 48vmin;
   animation-delay: 0.9s;
 }
 .flower--3 .flower__line__leaf--1 {
@@ -271,6 +272,66 @@ body {
   --field-speed: 5.4s;
   --field-delay: 0.9s;
   --field-z: 5;
+}
+.field-bloom--7 {
+  --field-left: -39vw;
+  --field-bottom: -2vmin;
+  --field-height: 29vmin;
+  --field-scale: 0.42;
+  --field-rotate: 5deg;
+  --field-speed: 4.9s;
+  --field-delay: 1.5s;
+  --field-z: 2;
+}
+.field-bloom--8 {
+  --field-left: -14vw;
+  --field-bottom: -2vmin;
+  --field-height: 27vmin;
+  --field-scale: 0.4;
+  --field-rotate: 14deg;
+  --field-speed: 5.1s;
+  --field-delay: 0.5s;
+  --field-z: 2;
+}
+.field-bloom--9 {
+  --field-left: -4vw;
+  --field-bottom: 2vmin;
+  --field-height: 34vmin;
+  --field-scale: 0.48;
+  --field-rotate: -13deg;
+  --field-speed: 4.6s;
+  --field-delay: 1.7s;
+  --field-z: 6;
+}
+.field-bloom--10 {
+  --field-left: 6vw;
+  --field-bottom: -2vmin;
+  --field-height: 30vmin;
+  --field-scale: 0.43;
+  --field-rotate: 9deg;
+  --field-speed: 5.3s;
+  --field-delay: 0.7s;
+  --field-z: 2;
+}
+.field-bloom--11 {
+  --field-left: 24vw;
+  --field-bottom: 3vmin;
+  --field-height: 34vmin;
+  --field-scale: 0.5;
+  --field-rotate: -15deg;
+  --field-speed: 4.8s;
+  --field-delay: 1.6s;
+  --field-z: 6;
+}
+.field-bloom--12 {
+  --field-left: 37vw;
+  --field-bottom: -2vmin;
+  --field-height: 28vmin;
+  --field-scale: 0.42;
+  --field-rotate: 13deg;
+  --field-speed: 5s;
+  --field-delay: 0.3s;
+  --field-z: 2;
 }
 .flower__leafs {
   position: relative;
@@ -1119,26 +1180,26 @@ body {
 }
 @keyframes moving-flower-1 {
   0%, 100% {
-    transform: rotate(2deg);
+    transform: scale(0.78) rotate(2deg);
   }
   50% {
-    transform: rotate(-2deg);
+    transform: scale(0.78) rotate(-2deg);
   }
 }
 @keyframes moving-flower-2 {
   0%, 100% {
-    transform: rotate(18deg);
+    transform: scale(0.76) rotate(18deg);
   }
   50% {
-    transform: rotate(14deg);
+    transform: scale(0.76) rotate(14deg);
   }
 }
 @keyframes moving-flower-3 {
   0%, 100% {
-    transform: rotate(-18deg);
+    transform: scale(0.74) rotate(-18deg);
   }
   50% {
-    transform: rotate(-20deg) rotateY(-10deg);
+    transform: scale(0.74) rotate(-20deg) rotateY(-10deg);
   }
 }
 @keyframes blooming-leaf-right {
