@@ -124,7 +124,7 @@ body {
   animation: moving-flower-1 4s linear infinite;
 }
 .flower--1 .flower__line {
-  height: 58vmin;
+  height: 54vmin;
   animation-delay: 0.3s;
 }
 .flower--1 .flower__line__leaf--1 {
@@ -151,7 +151,7 @@ body {
   animation: moving-flower-2 4s linear infinite;
 }
 .flower--2 .flower__line {
-  height: 50vmin;
+  height: 47vmin;
   animation-delay: 0.6s;
 }
 .flower--2 .flower__line__leaf--1 {
@@ -172,7 +172,7 @@ body {
   animation: moving-flower-3 4s linear infinite;
 }
 .flower--3 .flower__line {
-  height: 48vmin;
+  height: 45vmin;
   animation-delay: 0.9s;
 }
 .flower--3 .flower__line__leaf--1 {
@@ -186,6 +186,80 @@ body {
 }
 .flower--3 .flower__line__leaf--4 {
   animation: blooming-leaf-left var(--fl-speed) 1.9s backwards;
+}
+.flower--1 .flower__leafs,
+.flower--2 .flower__leafs,
+.flower--3 .flower__leafs {
+  transform: translateY(1vmin);
+}
+.flower--1 .flower__leafs::before,
+.flower--2 .flower__leafs::before,
+.flower--3 .flower__leafs::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -4.8vmin;
+  width: 6.2vmin;
+  height: 6.2vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffb51e 0 55%, transparent 56%);
+  box-shadow: 0 -5.4vmin 0 -1.65vmin #ffe14f, 3.8vmin -3.8vmin 0 -1.65vmin #ffb31c, 5.4vmin 0 0 -1.65vmin #ffd634, 3.8vmin 3.8vmin 0 -1.65vmin #ffa712, 0 5.4vmin 0 -1.65vmin #ffd634, -3.8vmin 3.8vmin 0 -1.65vmin #ffb31c, -5.4vmin 0 0 -1.65vmin #ffe14f, -3.8vmin -3.8vmin 0 -1.65vmin #ffa712;
+  transform: translate(-50%, -50%) rotate(22deg);
+  z-index: 0;
+}
+.flower--1 .flower__leaf,
+.flower--2 .flower__leaf,
+.flower--3 .flower__leaf {
+  width: 6.6vmin;
+  height: 12.8vmin;
+  border-radius: 52% 48% 48% 52%/78% 78% 22% 22%;
+  background-color: #ffd33f;
+  background-image: linear-gradient(to top, #d98200, #ffbe16 50%, #ffe45c 82%, #fff08d);
+  box-shadow: inset 0 -0.8vmin 1.3vmin rgba(160, 86, 0, 0.32), 0 0 1.4vmin rgba(255, 202, 45, 0.38);
+}
+.flower--1 .flower__leaf--1,
+.flower--2 .flower__leaf--1,
+.flower--3 .flower__leaf--1 {
+  transform: translate(-10%, 2%) rotateY(42deg) rotateX(-58deg) rotate(-8deg);
+}
+.flower--1 .flower__leaf--2,
+.flower--2 .flower__leaf--2,
+.flower--3 .flower__leaf--2 {
+  transform: translate(-50%, -9%) rotateX(42deg);
+}
+.flower--1 .flower__leaf--3,
+.flower--2 .flower__leaf--3,
+.flower--3 .flower__leaf--3 {
+  transform: translate(-90%, 2%) rotateY(42deg) rotateX(58deg) rotate(8deg);
+}
+.flower--1 .flower__leaf--4,
+.flower--2 .flower__leaf--4,
+.flower--3 .flower__leaf--4 {
+  width: 7vmin;
+  height: 10vmin;
+  border-radius: 55% 45% 48% 52%/76% 72% 26% 24%;
+  background-image: linear-gradient(to top, #c87400, #ffb313 55%, #ffe159 85%, #fff08a);
+  transform: translate(-45%, 18%) rotateX(68deg) rotate(45deg);
+}
+.flower--1 .flower__white-circle,
+.flower--2 .flower__white-circle,
+.flower--3 .flower__white-circle {
+  left: -4.3vmin;
+  top: -7.9vmin;
+  width: 8.7vmin;
+  height: 8.7vmin;
+  background: radial-gradient(circle, #7b4213 0 28%, #9a5519 29% 48%, #4b2409 49% 100%);
+  box-shadow: inset 0 0 1vmin rgba(38, 12, 0, 0.7), 0 0 1.3vmin rgba(255, 187, 40, 0.36);
+  z-index: 3;
+}
+.flower--1 .flower__white-circle::after,
+.flower--2 .flower__white-circle::after,
+.flower--3 .flower__white-circle::after {
+  top: 50%;
+  width: 72%;
+  height: 72%;
+  background-image: radial-gradient(circle at 33% 33%, #c47a26 0 0.32vmin, transparent 0.37vmin), radial-gradient(circle at 64% 45%, #4a2107 0 0.3vmin, transparent 0.36vmin), radial-gradient(circle at 48% 68%, #9b5519 0 0.34vmin, transparent 0.4vmin), radial-gradient(circle, #7a3f11, #2d1204 76%);
+  background-size: 1.7vmin 1.7vmin, 1.9vmin 1.9vmin, 1.5vmin 1.5vmin, 100% 100%;
 }
 .field-bloom {
   bottom: var(--field-bottom);
@@ -1180,26 +1254,26 @@ body {
 }
 @keyframes moving-flower-1 {
   0%, 100% {
-    transform: scale(0.78) rotate(2deg);
+    transform: scale(0.72) rotate(2deg);
   }
   50% {
-    transform: scale(0.78) rotate(-2deg);
+    transform: scale(0.72) rotate(-2deg);
   }
 }
 @keyframes moving-flower-2 {
   0%, 100% {
-    transform: scale(0.76) rotate(18deg);
+    transform: scale(0.7) rotate(18deg);
   }
   50% {
-    transform: scale(0.76) rotate(14deg);
+    transform: scale(0.7) rotate(14deg);
   }
 }
 @keyframes moving-flower-3 {
   0%, 100% {
-    transform: scale(0.74) rotate(-18deg);
+    transform: scale(0.68) rotate(-18deg);
   }
   50% {
-    transform: scale(0.74) rotate(-20deg) rotateY(-10deg);
+    transform: scale(0.68) rotate(-20deg) rotateY(-10deg);
   }
 }
 @keyframes blooming-leaf-right {
